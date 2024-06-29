@@ -1,12 +1,19 @@
-import './input.css';
+// File: App.js
+import React, { useState } from 'react';
+import PostForm from './components/PostForm';
+import PostList from './components/PostList';
 
 function App() {
+  const [posts, setPosts] = useState([]);
+
+  function addPost(text) {
+    setPosts([text, ...posts]);
+  }
+  console.log("rerendered");
   return (
     <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo h-screen" alt="logo" /> */}
-      </header>
-      <h1 className='w-screen text-center text-orange-700'>Hellow world</h1>
+      <PostForm addPost={addPost} />
+      <PostList posts={posts} />
     </div>
   );
 }
