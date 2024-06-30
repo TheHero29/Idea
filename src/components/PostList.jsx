@@ -2,7 +2,8 @@
 import React from 'react';
 import Post from './Post';
 
-function PostList({ posts }) {
+function PostList() {
+  
   return (
     <ul>
       {posts.map((post, index) => (

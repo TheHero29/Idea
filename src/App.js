@@ -2,10 +2,10 @@
 import React, { useState } from 'react';
 import PostForm from './components/PostForm';
 import PostList from './components/PostList';
-
+// import './input.css';
 function App() {
   const [posts, setPosts] = useState([]);
-
+  
   function addPost(text) {
     setPosts([text, ...posts]);
   }
