@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import './FeedPage.css';
 import PostForm from '../components/Posts/PostForm';
 import PostList from '../components/Posts/PostList';
 const FeedPage = () => {
@@ -14,8 +15,8 @@ const FeedPage = () => {
     setPosts([text, ...posts]);
   }
   return (
-    <div>
-        <PostForm addPost={addPost} />
+    <div className='feed-page'>
+        {/* <PostForm addPost={addPost} /> */}
         <PostList posts={posts} />
     </div>
   )
