@@ -1,7 +1,7 @@
 // File: PostList.js
 import React from 'react';
 import Post from './Post';
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 function PostList({ posts}) {
   // let [posts,setPosts] = useState([]);
   // useEffect(() => {
