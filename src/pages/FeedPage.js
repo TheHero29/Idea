@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import './FeedPage.css';
 import PostForm from '../components/Posts/PostForm';
 import PostList from '../components/Posts/PostList';
+
 const FeedPage = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -16,7 +17,7 @@ const FeedPage = () => {
   }
   return (
     <div className='feed-page'>
-        {/* <PostForm addPost={addPost} /> */}
+        <PostForm addPost={addPost} />
         <PostList posts={posts} />
     </div>
   )
