@@ -8,7 +8,7 @@ import SignupPage from './pages/SignupPage';
 import FeedPage from './pages/FeedPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import './index.css';
+import './index';
 function App() {
   // const [posts, setPosts] = useState([]);
   // useEffect(() => {
@@ -26,20 +26,20 @@ function App() {
     <div className="App m-0 p-4">
       {/* <PostForm addPost={addPost} />
       <PostList posts={posts} /> */}
-      <LoginPage />
+      {/* <LoginPage /> */}
       {/* <div className='flex-col'>
         <h1>hello</h1>
         <button className='bg-slate-500 p-4 rounded m-4'>Click me</button>
       </div> */}
+    <Router>
+      <Routes>
+      <Route path="/" element={<FeedPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
+      <Route path="/feed" element={<FeedPage />} />
+      </Routes>
+    </Router>
     </div>
-    // <Router>
-    //   <Routes>
-    //   <Route path="/" element={<FeedPage />} />
-    //   <Route path="/login" element={<LoginPage />} />
-    //   <Route path="/signup" element={<SignupPage />} />
-    //   <Route path="/feed" element={<FeedPage />} />
-    //   </Routes>
-    // </Router>
   );
 }
 

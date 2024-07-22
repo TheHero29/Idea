@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import './FeedPage.css';
 import PostForm from '../components/Posts/PostForm';
 import PostList from '../components/Posts/PostList';
 

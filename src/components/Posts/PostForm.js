@@ -1,6 +1,4 @@
-// File: PostForm.js
 import React, { useState } from 'react';
-// import '../input.css'
 function PostForm({addPost}) {
   const [text, setText] = useState('');
   const [title, setTitle] = useState('');
