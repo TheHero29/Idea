@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import { LoginUser } from "../calls/users";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
+    console.log("trying to login user");
     event.preventDefault(); // Prevent the default form submission behavior
 
     // Create the data object to send to the backend
     const formData = {
-      email,
-      password,
+      "email":email,
+      "password":password,
     };
-
+    console.log(formData);
     const formDataJson = JSON.stringify(formData);
     try {
       // Send a POST request to your backend API
@@ -24,14 +26,18 @@ const LoginPage = () => {
         throw new Error("Network response was not ok");
       }
 
-      // Process the response
-      const result = await response.json();
-      console.log(result);
+      console.log(response);
 
+      // check success status
+      if(!response.data.success){
+        throw new Error(response.data.message);
+      }
+      
       // Handle successful login, redirect, etc.
       console.log("Login successful");
+      navigate("/feed")
     } catch (error) {
-      console.error("Error:", error);
+      alert(error);
     }
   };
 
@@ -50,7 +56,7 @@ const LoginPage = () => {
           className="rounded-lg border bg-card text-card-foreground shadow-sm"
           data-v0-t="card"
         >
-          <form onSubmit={handleSubmit} className="p-6 space-y-4">
+          <form className="p-6 space-y-4">
             <div className="space-y-2">
               <label
                 className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -87,6 +93,7 @@ const LoginPage = () => {
             <div className="flex items-center p-6">
               <button 
                 type="submit"
+                onClick={handleSubmit}
                 className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full"
               >
                 Sign in

@@ -2,10 +2,11 @@ import {axiosInstance} from "./index";
 
 export const RegisterUser = async (user) => {
     try {
-      console.log("trying to register user");
+        console.log(user);
         const response = await axiosInstance.post('api/users/register', user);
-        return response.data;
+        return response;
     } catch (error) {
+        console.log(error.response);
         return error.response;
     }
 }
