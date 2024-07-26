@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 function PostForm({addPost}) {
   const [text, setText] = useState('');
   const [title, setTitle] = useState('');
-
+  const [tags,setTags] = useState([]);
   function handleSubmit(e) {
     e.preventDefault();
     addPost({

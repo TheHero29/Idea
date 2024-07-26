@@ -10,7 +10,7 @@ function PostList({ posts}) {
   //     .then(data => {setPosts(data);console.log(data)});
   // }, [])
   return (
-    <div className='post-list'>
+    <div className='post-list flex-col'>
       {posts.map((post) => (
         <Post key={post.id} post={post} />
       ))}

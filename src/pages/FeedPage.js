@@ -15,7 +15,7 @@ const FeedPage = () => {
     setPosts([text, ...posts]);
   }
   return (
-    <div className='feed-page'>
+    <div className='feed-page w-full'>
         <PostForm addPost={addPost} />
         <PostList posts={posts} />
     </div>
