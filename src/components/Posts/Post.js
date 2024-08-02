@@ -6,6 +6,12 @@ import { Button } from "../ui/button"
 import { X } from 'lucide-react';
 
 function Post({ post }) {
+  const upvote = () => {
+    post.upvotes += 1;
+  }
+  const downvote = () => {
+    post.downvotes += 1;
+  }
   return (
     <Card className="w-full max-w-md p-6 grid gap-6 m-4">
       <div className="flex items-center gap-4">
@@ -19,15 +25,16 @@ function Post({ post }) {
           <span>100</span>
         </div>
       </div>
+      <div className='font-semibold'>{post.title}</div>
       <div className="text-muted-foreground">
         {post.body}
       </div>
       <div className="flex items-center gap-2">
-        <Button variant="ghost" size="icon" className="hover:bg-transparent">
+        <Button variant="ghost" size="icon" className="hover:bg-transparent" onClick={upvote}>
           <ThumbsUpIcon className="w-5 h-5" />
           <span className="sr-only">Upvote</span>
         </Button>
-        <Button variant="ghost" size="icon" className="hover:bg-transparent">
+        <Button variant="ghost" size="icon" className="hover:bg-transparent" onClick={downvote}>
           <ThumbsDownIcon className="w-5 h-5" />
           <span className="sr-only">Downvote</span>
         </Button>

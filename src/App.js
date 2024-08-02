@@ -23,7 +23,7 @@ function App() {
   
   console.log("rerendered");
   return (
-    <div className="App m-0 p-4">
+    <div className="App m-0 p-0">
       {/* <PostForm addPost={addPost} />
       <PostList posts={posts} /> */}
       {/* <LoginPage /> */}
