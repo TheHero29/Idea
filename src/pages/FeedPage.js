@@ -16,10 +16,10 @@ const FeedPage = () => {
     setPosts([text, ...posts]);
   }
   return (
-    <div className='feed-page w-full bg-back-ground flex justify-around'>
+    <div className='feed-page w-full bg-muted flex justify-around'>
         <PostForm addPost={addPost} />
         <PostList posts={posts} />
-        <div className='border-black p-4 text-wrap'>hell</div>
+        <div className='border-black p-4 text-wrap hidden lg:block'>hell</div>
     </div>
   )
 }

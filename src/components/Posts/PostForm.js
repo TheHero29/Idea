@@ -14,23 +14,23 @@ function PostForm({addPost}) {
   }
 
   return (
-    <div className='flex items-center content-center '>
-    <form className='hidden md:flex md:align-top md:flex-col' onSubmit={handleSubmit}>
+    <div className='flex justify-center items-center h-screen w-1/8'>
+    <form className='hidden lg:flex lg:align-top lg:flex-col fixed lg:justify-start border bg-card text-card-foreground shadow-sm rounded-lg p-3' onSubmit={handleSubmit}>
       <input 
-      className='border-black m-3 p-3 rounded-lg'
+      className='m-3 p-3 rounded-lg border bg-card text-card-foreground shadow-sm'
       type="text"
       value={title}
       onChange={e => setTitle(e.target.value)}
       placeholder="Title"
       />
-      <input
-      className='border-black m-3 p-3 rounded-lg'
+      <textarea
+      className='m-3 p-3 rounded-lg border bg-card text-card-foreground shadow-sm'
         type="text"
         value={text}
         onChange={e => setText(e.target.value)}
         placeholder="What's your idea?"
       />
-      <button className='text-wrap bg-black text-white rounded-xl p-2 max-w-20' type="submit">Post</button>
+      <button className='text-wrap bg-black text-white rounded-xl p-2 max-w-20 m-3' type="submit">Post</button>
     </form>
     </div>
   );
