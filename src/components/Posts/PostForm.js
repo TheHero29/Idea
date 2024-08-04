@@ -1,17 +1,31 @@
+import { GetCurrentUser } from '../../calls/users';
+import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 function PostForm({addPost}) {
   const [text, setText] = useState('');
   const [title, setTitle] = useState('');
   const [tags,setTags] = useState([]);
-  function handleSubmit(e) {
-    e.preventDefault();
+  const navigate = useNavigate();
+
+  async function handleSubmit(e) {
+    e.preventDefault(); 
+    const user = await GetCurrentUser();
+    console.log(user);
+    if(!user.success)
+    {
+      alert("You need to be logged in")
+      navigate("/login")
+    }
     addPost({
       "title":title,
-      "body":text
+      "body":text,
+      "upvotes":0,
+      "downvotes":0
     });
     setText('');
     setTitle('');
   }
+
 
   return (
     <div className='justify-center items-center h-screen w-1/8 hidden lg:flex lg:align-top lg:flex-col'>

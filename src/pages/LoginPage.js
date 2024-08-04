@@ -26,15 +26,16 @@ const LoginPage = () => {
         throw new Error("Network response was not ok");
       }
 
-      console.log(response);
+      // console.log(response);
 
       // check success status
-      if(!response.data.success){
-        throw new Error(response.data.message);
+      if(!response.success){
+        throw new Error(response.message);
       }
       
       // Handle successful login, redirect, etc.
-      console.log("Login successful");
+      alert(response.message)
+      localStorage.setItem("token",response.token);
       navigate("/feed")
     } catch (error) {
       alert(error);
