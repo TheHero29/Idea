@@ -14,7 +14,7 @@ function PostForm({addPost}) {
   }
 
   return (
-    <div className='flex justify-center items-center h-screen w-1/8'>
+    <div className='justify-center items-center h-screen w-1/8 hidden lg:flex lg:align-top lg:flex-col'>
     <form className='hidden lg:flex lg:align-top lg:flex-col fixed lg:justify-start border bg-card text-card-foreground shadow-sm rounded-lg p-3' onSubmit={handleSubmit}>
       <input 
       className='m-3 p-3 rounded-lg border bg-card text-card-foreground shadow-sm'

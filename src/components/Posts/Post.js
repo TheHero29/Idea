@@ -13,7 +13,7 @@ function Post({ post }) {
     post.downvotes += 1;
   }
   return (
-    <Card className="w-full max-w-md p-6 grid gap-6 m-4">
+    <Card className="w-[80vw] md:max-w-[30vw] p-6 grid gap-6 m-4">
       <div className="flex items-center gap-4">
         <Avatar className="w-10 h-10 border">
           <AvatarImage src="/placeholder-user.jpg" />
