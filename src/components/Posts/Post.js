@@ -5,7 +5,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { X } from "lucide-react";
 import { useState } from "react";
-function Post({ post }) {
+function Post({ key, post }) {
   const upvote = () => {
     console.log(post.upvotes);
   };
@@ -19,14 +19,14 @@ function Post({ post }) {
           <AvatarImage src="/placeholder-user.jpg" />
           <AvatarFallback>AC</AvatarFallback>
         </Avatar>
-        <div className="font-medium">@shadcn</div>
+        <div className="font-medium">{post.author}</div>
         <div className="ml-auto flex items-center gap-2 text-muted-foreground">
           <CurrencyIcon className="w-5 h-5" />
           <span>100</span>
         </div>
       </div>
       <div className="font-semibold">{post.title}</div>
-      <div className="text-muted-foreground">{post.body}</div>
+      <div className="text-muted-foreground">{post.content}</div>
       <div className="flex items-center gap-2">
         <Button
           variant="ghost"
