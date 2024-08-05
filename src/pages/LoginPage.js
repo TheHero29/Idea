@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { LoginUser } from "../calls/users";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -47,7 +48,7 @@ const LoginPage = () => {
       <div className="mx-auto w-full max-w-md space-y-4">
         <div className="text-center">
           <h1 className="text-3xl font-bold tracking-tight text-foreground">
-            Sign in to your account
+            Log in to your account
           </h1>
           <p className="mt-2 text-muted-foreground">
             Enter your email and password below to access your account.
@@ -102,6 +103,7 @@ const LoginPage = () => {
             </div>
           </form>
         </div>
+        <p className="text-slate-600 text-sm text-center">Don't have an account?  Signup <Link className="text-purple-400 hover:underline" to='/signup' >here</Link></p>
       </div>
     </div>
   );

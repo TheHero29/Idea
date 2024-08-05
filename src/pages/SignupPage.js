@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { RegisterUser } from "../calls/users";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 const SignupPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -112,6 +112,7 @@ const SignupPage = () => {
             </button>
           </div>
         </div>
+        <p className="text-slate-600 text-sm text-center">Already have an account?  Login <Link className="text-purple-400 hover:underline" to='/login' >here</Link></p>
       </div>
     </div>
   );

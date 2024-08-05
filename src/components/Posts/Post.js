@@ -5,13 +5,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { X } from "lucide-react";
 import { useState } from "react";
-function Post({ key, post }) {
-  const upvote = () => {
-    console.log(post.upvotes);
-  };
-  const downvote = () => {
-    post.downvotes += 1;
-  };
+function Post({ post,upvote,downvote }) {
   return (
     <Card className="w-[80vw] md:max-w-[30vw] p-6 grid gap-6 m-4">
       <div className="flex items-center gap-4">
@@ -26,7 +20,7 @@ function Post({ key, post }) {
         </div>
       </div>
       <div className="font-semibold">{post.title}</div>
-      <div className="text-muted-foreground">{post.content}</div>
+      <div className="text-accent-foreground">{post.content}</div>
       <div className="flex items-center gap-2">
         <Button
           variant="ghost"
