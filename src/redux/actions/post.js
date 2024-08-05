@@ -23,12 +23,9 @@ export const fetchPostsFailure = (error) => ({
 // Async Action Creator (Thunk)
 export const fetchPosts = () => {
   return async (dispatch) => {
-    console.log('fetchPosts action creator called');
     dispatch(fetchPostsRequest());
     try {
-      console.log("Fetching...");
       const response = await getAllPosts(); 
-      console.log("API response:",response) ;
       dispatch(fetchPostsSuccess(response.data));
     } catch (error) {
       dispatch(fetchPostsFailure(error.message));
