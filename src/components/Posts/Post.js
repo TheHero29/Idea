@@ -5,7 +5,17 @@ import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { X } from "lucide-react";
 import { useState } from "react";
-function Post({ post,upvote,downvote }) {
+import { useDispatch, useSelector } from 'react-redux';
+import { upvotePost,downvotePost } from '../../redux/actions/post';
+function Post({ post }) {
+  const postId = post._id;
+  const dispatch = useDispatch();
+  const upvote = () =>{
+    dispatch(upvotePost(postId));
+  }
+  const downvote = () =>{
+    dispatch(downvotePost(postId));
+  }
   return (
     <Card className="w-[80vw] md:max-w-[30vw] p-6 grid gap-6 m-4">
       <div className="flex items-center gap-4">

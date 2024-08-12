@@ -4,6 +4,9 @@ import { getAllPosts } from '../../calls/posts';
 export const FETCH_POSTS_REQUEST = 'FETCH_POSTS_REQUEST';
 export const FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS';
 export const FETCH_POSTS_FAILURE = 'FETCH_POSTS_FAILURE';
+export const UPVOTE_POST = 'UPVOTE_POST';
+export const DOWNVOTE_POST = 'DOWNVOTE_POST';
+
 
 // Action Creators
 export const fetchPostsRequest = () => ({
@@ -32,3 +35,19 @@ export const fetchPosts = () => {
     }
   };
 };
+
+//upvote function
+
+export const upvotePost = (postId) => {
+  return{
+    type:UPVOTE_POST,
+    payload:postId
+  }
+}
+
+export const downvotePost = (postId) => {
+  return{
+    type:DOWNVOTE_POST,
+    payload:postId
+  }
+}

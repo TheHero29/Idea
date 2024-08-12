@@ -13,6 +13,7 @@ import "./index";
 function App() {
   console.log("rerendered");
   return (
+    //Nothing just felt bad cuz I didn't open you today. Just realized that I love you 3000. cutie!
     <Provider store={store}>
       <div className="App m-0 p-0">
         <Router>

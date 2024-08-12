@@ -2,7 +2,9 @@ import {
   FETCH_POSTS_REQUEST,
   FETCH_POSTS_SUCCESS,
   FETCH_POSTS_FAILURE,
-} from '../actions/post';
+  UPVOTE_POST,
+  DOWNVOTE_POST
+} from "../actions/post";
 
 const initialState = {
   posts: [],
@@ -30,6 +32,24 @@ const postReducer = (state = initialState, action) => {
         loading: false,
         error: action.payload,
       };
+    case UPVOTE_POST:
+      return {
+        ...state,
+        posts: state.posts.map((post) =>
+          post._id === action.payload
+            ? { ...post, upvotes: post.upvotes + 1 }
+            : post
+        ),
+      };
+      case DOWNVOTE_POST:
+        return {
+          ...state,
+          posts: state.posts.map((post) =>
+            post._id === action.payload
+              ? { ...post, upvotes: post.upvotes - 1 }
+              : post
+          ),
+        };
     default:
       return state;
   }

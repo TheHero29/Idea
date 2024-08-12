@@ -15,7 +15,6 @@ function PostList() {
   );
   
   if(loading) return <div>loading...</div>;
-
   return (
     <div className='post-list flex-col'>
       {posts.map((post) => (
