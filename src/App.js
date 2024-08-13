@@ -1,7 +1,4 @@
 // File: App.js
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { fetchPosts } from "./redux/actions/post";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 import LoginPage from "./pages/LoginPage";
