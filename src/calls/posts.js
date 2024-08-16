@@ -21,3 +21,25 @@ export const addPost = async(post) => {
     return error.response;
   }
 }
+
+export const upvotePostBend = async (postId) => {
+  try{
+    const response = await axiosInstance.put(`api/posts/${postId}/upvote`);
+    return response;
+  }
+  catch(error){
+    console.log(error);
+    return error.response;
+  }
+}
+
+export const downvotePostBend = async (postId) => {
+  try{
+    const response = await axiosInstance.put(`api/posts/${postId}/downvote`);
+    return response;
+  }
+  catch(error){
+    console.log(error);
+    return error.response;
+  }
+}

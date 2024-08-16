@@ -5,15 +5,17 @@ import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { useDispatch, useSelector } from 'react-redux';
 import { upvotePost,downvotePost } from '../../redux/actions/post';
+import { upvotePostBend, downvotePostBend } from '../../calls/posts';
 function Post({ post }) {
   const postId = post._id;
   const dispatch = useDispatch();
-  const upvote = () =>{
+  const upvote = async () =>{
     dispatch(upvotePost(postId));
-    
+    upvotePostBend(postId);
   }
-  const downvote = () =>{
+  const downvote = async () =>{
     dispatch(downvotePost(postId));
+    downvotePostBend(postId);
   }
   return (
     <Card className="w-[80vw] md:max-w-[30vw] p-6 grid gap-6 m-4">
