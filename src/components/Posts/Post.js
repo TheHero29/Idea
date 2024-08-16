@@ -10,6 +10,7 @@ function Post({ post }) {
   const dispatch = useDispatch();
   const upvote = () =>{
     dispatch(upvotePost(postId));
+    
   }
   const downvote = () =>{
     dispatch(downvotePost(postId));
