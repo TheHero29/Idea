@@ -29,9 +29,11 @@ function PostForm() {
   }
 
   return (
-    <div className="justify-center items-center h-screen w-1/8 hidden lg:flex lg:align-top lg:flex-col">
+    // <div className="justify-center items-center h-screen w-1/8 hidden lg:flex lg:align-top lg:flex-col">
       <form
-        className="hidden lg:flex lg:align-top lg:flex-col fixed lg:justify-start border bg-card text-card-foreground shadow-sm rounded-lg p-3"
+        className={`
+        flex align-top flex-col w-[80vw] md:max-w-[30vw] lg:justify-start
+         border bg-card text-card-foreground shadow-sm rounded-lg p-3 m-4`}
         onSubmit={handleSubmit}
       >
         <input
@@ -55,7 +57,7 @@ function PostForm() {
           Post
         </button>
       </form>
-    </div>
+    // </div>
   );
 }
 

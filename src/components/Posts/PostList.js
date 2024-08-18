@@ -4,6 +4,7 @@ import Post from './Post';
 import { fetchPosts } from '../../redux/actions/post';
 import { useSelector,useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
+import PostForm from './PostForm';
 function PostList() {
   const dispatch = useDispatch();
   useEffect(() => {

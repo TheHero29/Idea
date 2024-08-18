@@ -4,7 +4,7 @@ const Header = () => {
   let [show, setShow] = useState(false);
   return show ? (
     <>
-      <div className="flex justify-between bg-primary">
+      <div className="flex justify-between bg-primary fixed top-0 z-10 w-full">
         <div className="p-3 pl-6 m-4 text-white">idea-dump</div>
         <div className="p-3 pr-6 m-4 text-white">
           <div
@@ -19,7 +19,7 @@ const Header = () => {
         </div>
     </>
   ) : (
-    <div className="flex justify-between bg-primary">
+    <div className="flex justify-between bg-primary fixed top-0 z-10 w-full">
       <div className="p-3 pl-6 m-4 text-white">idea-dump</div>
       <div className="p-3 pr-6 m-4 text-white flex">
         <div

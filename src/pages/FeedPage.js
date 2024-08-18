@@ -18,10 +18,12 @@ const FeedPage = () => {
   return (
     <>
       <Header />
-      <div className="feed-page w-full bg-muted flex justify-around">
+      <div className="feed-page w-full bg-muted flex justify-center mt-[5.7rem]">
+        <div className="flex-col">
         <PostForm />
         <PostList />
-        <div className="border-black p-4 text-wrap hidden lg:block">hello</div>
+        </div>
+        {/* <div className="border-black p-4 text-wrap hidden lg:block">hello</div> */}
       </div>
     </>
   );

@@ -6,6 +6,8 @@ export const FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS';
 export const FETCH_POSTS_FAILURE = 'FETCH_POSTS_FAILURE';
 export const UPVOTE_POST = 'UPVOTE_POST';
 export const DOWNVOTE_POST = 'DOWNVOTE_POST';
+export const CANCEL_UPVOTE_POST = 'CANCEL_UPVOTE_POST';
+export const CANCEL_DOWNVOTE_POST = 'CANCEL_DOWNVOTE_POST';
 
 
 // Action Creators
@@ -48,6 +50,20 @@ export const upvotePost = (postId) => {
 export const downvotePost = (postId) => {
   return{
     type:DOWNVOTE_POST,
+    payload:postId
+  }
+}
+
+export const cancelUpvotePost = (postId) => {
+  return{
+    type:CANCEL_UPVOTE_POST,
+    payload:postId
+  }
+}
+
+export const cancelDownvotePost = (postId) => {
+  return{
+    type:CANCEL_DOWNVOTE_POST,
     payload:postId
   }
 }

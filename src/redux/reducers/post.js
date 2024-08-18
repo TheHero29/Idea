@@ -3,7 +3,9 @@ import {
   FETCH_POSTS_SUCCESS,
   FETCH_POSTS_FAILURE,
   UPVOTE_POST,
-  DOWNVOTE_POST
+  DOWNVOTE_POST,
+  CANCEL_UPVOTE_POST,
+  CANCEL_DOWNVOTE_POST,
 } from "../actions/post";
 
 const initialState = {
@@ -46,7 +48,25 @@ const postReducer = (state = initialState, action) => {
           ...state,
           posts: state.posts.map((post) =>
             post._id === action.payload
+              ? { ...post, upvotes: post.downvotes + 1 }
+              : post
+          ),
+        };
+      case CANCEL_UPVOTE_POST:
+        return {
+          ...state,
+          posts: state.posts.map((post) =>
+            post._id === action.payload
               ? { ...post, upvotes: post.upvotes - 1 }
+              : post
+          ),
+        };
+      case CANCEL_DOWNVOTE_POST:
+        return {
+          ...state,
+          posts: state.posts.map((post) =>
+            post._id === action.payload
+              ? { ...post, upvotes: post.downvotes - 1 }
               : post
           ),
         };
