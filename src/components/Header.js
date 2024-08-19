@@ -60,7 +60,7 @@ const Header = () => {
                   window.location.reload();
                   navigate("/login");
                 }}
-                className="hover:underline scale-[3]"
+                className="hover:underline"
               >
                 Logout
               </button>
