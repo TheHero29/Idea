@@ -1,17 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PostForm from "../components/Posts/PostForm";
 import PostList from "../components/Posts/PostList";
 import Header from "../components/Header";
-import { useSelector } from "react-redux";
-import { fetchUser } from "../redux/actions/user";
-import { useDispatch } from "react-redux";
+// import { useSelector } from "react-redux";
 
 const FeedPage = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchUser());
-  }, [dispatch]);
-  const user = useSelector((state) => state.user);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(fetchUser());
+  // }, [dispatch]);
+  // const user = useSelector((state) => state.user);
   // if(user!==null)
   // console.log(user);
 

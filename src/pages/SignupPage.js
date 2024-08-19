@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { RegisterUser } from "../calls/users";
 import { useNavigate,Link } from "react-router-dom";
+import Header from "../components/Header";
 const SignupPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,6 +41,8 @@ const SignupPage = () => {
     }
   };
   return (
+    <>
+    <Header />
     <div className="flex min-h-[100dvh] items-center justify-center bg-repeat bg-[length:50px] bg-muted px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto w-full max-w-md space-y-4">
         <div className="text-center">
@@ -116,6 +119,7 @@ const SignupPage = () => {
         <p className="text-slate-600 text-sm text-center">Already have an account?  Login <Link className="text-purple-400 hover:underline" to='/login' >here</Link></p>
       </div>
     </div>
+    </>
   );
 };
 

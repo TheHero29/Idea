@@ -1,4 +1,4 @@
-import { GetCurrentUser } from "../calls/users";
+// import { GetCurrentUser } from "../calls/users";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <>
       <nav className="flex justify-between items-center bg-primary fixed top-0 z-10 w-full">
-        <div className="p-3 pl-6 m-4 text-white">idea-dump</div>
+        <Link to="/" className="p-3 pl-6 m-4 text-white">idea-dump</Link>
 
         <div
           className="p-3 pr-6 m-4 text-white lg:hidden hover:cursor-pointer"
@@ -43,7 +43,7 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link to={`/user/${user._id}`} className="hover:underline">
+              <Link to={`user/${user._id}`} className="hover:underline">
                 Profile
               </Link>
               <Link to="/about" className="hover:underline">
