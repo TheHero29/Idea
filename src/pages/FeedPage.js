@@ -12,11 +12,11 @@ const FeedPage = () => {
   // const user = useSelector((state) => state.user);
   // if(user!==null)
   // console.log(user);
-
   return (
+    
     <>
       <Header />
-      <div className="feed-page w-full bg-muted flex justify-center mt-[5.7rem]">
+      <div className="feed-page w-full bg-muted flex justify-center mt-[5rem]">
         <div className="flex-col">
         <PostForm />
         <PostList />

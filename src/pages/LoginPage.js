@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { LoginUser } from "../calls/users";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const handleSubmit = async (event) => {
     console.log("trying to login user");
     event.preventDefault(); // Prevent the default form submission behavior
@@ -38,7 +38,7 @@ const LoginPage = () => {
       // Handle successful login, redirect, etc.
       alert(response.message)
       localStorage.setItem("token",response.token);
-      navigate("/feed")
+      window.open("/feed")
     } catch (error) {
       alert(error);
     }
