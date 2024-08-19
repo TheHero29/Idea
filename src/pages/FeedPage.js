@@ -11,9 +11,9 @@ const FeedPage = () => {
   useEffect(() => {
     dispatch(fetchUser());
   }, [dispatch]);
-  const user = useSelector((state) => state.user.user);
-  if(user!==null)
-  console.log(user.success,user.message);
+  const user = useSelector((state) => state.user);
+  // if(user!==null)
+  // console.log(user);
 
   return (
     <>

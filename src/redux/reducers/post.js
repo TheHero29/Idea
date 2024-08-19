@@ -48,7 +48,7 @@ const postReducer = (state = initialState, action) => {
           ...state,
           posts: state.posts.map((post) =>
             post._id === action.payload
-              ? { ...post, upvotes: post.downvotes + 1 }
+              ? { ...post, downvotes: post.downvotes + 1 }
               : post
           ),
         };
@@ -66,7 +66,7 @@ const postReducer = (state = initialState, action) => {
           ...state,
           posts: state.posts.map((post) =>
             post._id === action.payload
-              ? { ...post, upvotes: post.downvotes - 1 }
+              ? { ...post, downvotes: post.downvotes - 1 }
               : post
           ),
         };

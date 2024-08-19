@@ -1,3 +1,4 @@
+import { GetCurrentUser } from "../calls/users";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -8,6 +9,7 @@ const Header = () => {
     setShow(!show);
   };
   const user = useSelector((state) => state.user.user);
+  console.log(user);
   return (
     <>
       <nav className="flex justify-between items-center bg-primary fixed top-0 z-10 w-full">

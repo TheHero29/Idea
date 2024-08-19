@@ -7,17 +7,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { upvotePost,downvotePost } from '../../redux/actions/post';
 import { upvotePostBend, downvotePostBend } from '../../calls/posts';
 import { cancelUpvotePost, cancelDownvotePost } from '../../redux/actions/post';
+import { useNavigate } from "react-router-dom";
 
 function Post({ post }) {
   const postId = post._id;
   const user = useSelector(state => state.user.user);
-  console.log(user);
+  // console.log(user);
   const userId = user?user._id:null;
+  // console.log(userId);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const upvote = async () =>{
-    if(user.message==="No token provided")
+    if(!user)
     { 
       alert("Please login to upvote");
+      navigate("/login");
       return;
     }
     if(post.downvotesArray.includes(userId))
@@ -28,7 +32,7 @@ function Post({ post }) {
     if(post.upvotesArray.includes(userId))
       {    
         post.upvotesArray.splice(post.upvotesArray.indexOf(userId),1);
-        dispatch(downvotePost(postId))
+        dispatch(cancelUpvotePost(postId))
       }
       else
       {
@@ -38,9 +42,10 @@ function Post({ post }) {
     upvotePostBend(postId);
   }
   const downvote = async () =>{
-    if(user.message==="No token provided")
+    if(!user)
     {
       alert("Please login to downvote");
+      navigate("/login");
       return;
     }
     if(post.upvotesArray.includes(userId))
@@ -51,7 +56,7 @@ function Post({ post }) {
     if(post.downvotesArray.includes(userId))
       {    
         post.downvotesArray.splice(post.downvotesArray.indexOf(userId),1);
-        dispatch(upvotePost(postId))
+        dispatch(cancelDownvotePost(postId))
       }
       else
       {
@@ -69,10 +74,6 @@ function Post({ post }) {
           <AvatarFallback>AC</AvatarFallback>
         </Avatar>
         <div className="font-medium">@{post.author}</div>
-        {/* <div className="ml-auto flex items-center gap-2 text-muted-foreground">
-          <CurrencyIcon className="w-5 h-5" />
-          <span>100</span>
-        </div> */}
       </div>
       <div className="font-semibold">{post.title}</div>
       <div className="text-accent-foreground">{post.content}</div>
