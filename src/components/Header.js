@@ -2,9 +2,11 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
   const toggleMenu = () => {
     setShow(!show);
   };
@@ -13,7 +15,9 @@ const Header = () => {
   return (
     <>
       <nav className="flex justify-between items-center bg-primary fixed top-0 z-10 w-full">
-        <Link to="/" className="p-3 pl-6 m-4 text-white">idea-dump</Link>
+        <Link to="/" className="p-3 pl-6 m-4 text-white">
+          idea-dump
+        </Link>
 
         <div
           className="p-3 pr-6 m-4 text-white lg:hidden hover:cursor-pointer"
@@ -49,6 +53,16 @@ const Header = () => {
               <Link to="/about" className="hover:underline">
                 About
               </Link>
+              <button
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  window.location.reload();
+                  navigate("/login");
+                }}
+                className="hover:underline"
+              >
+                Logout
+              </button>
             </>
           )}
         </div>
@@ -99,6 +113,16 @@ const Header = () => {
                 >
                   About
                 </Link>
+                <button
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  window.location.reload();
+                  navigate("/login");
+                }}
+                className="hover:underline"
+              >
+                Logout
+              </button>
               </>
             )}
           </div>
