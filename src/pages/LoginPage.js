@@ -38,7 +38,7 @@ const LoginPage = () => {
       // Handle successful login, redirect, etc.
       alert(response.message)
       localStorage.setItem("token",response.token);
-      window.open("/feed")
+      window.location.href="/feed"
     } catch (error) {
       alert(error);
     }
