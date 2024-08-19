@@ -11,11 +11,14 @@ import { cancelUpvotePost, cancelDownvotePost } from '../../redux/actions/post';
 function Post({ post }) {
   const postId = post._id;
   const user = useSelector(state => state.user.user);
-  if(!user)
-    window.location.reload();
-  const userId = user._id;
+  const userId = user?user._id:null;
   const dispatch = useDispatch();
   const upvote = async () =>{
+    if(!user)
+    { 
+      alert("Please login to upvote");
+      return;
+    }
     if(post.downvotesArray.includes(userId))
     {
       post.downvotesArray.splice(post.downvotesArray.indexOf(userId),1);
@@ -34,6 +37,11 @@ function Post({ post }) {
     upvotePostBend(postId);
   }
   const downvote = async () =>{
+    if(!user)
+    {
+      alert("Please login to downvote");
+      return;
+    }
     if(post.upvotesArray.includes(userId))
     {
       post.upvotesArray.splice(post.upvotesArray.indexOf(userId),1);
@@ -59,11 +67,11 @@ function Post({ post }) {
           <AvatarImage src="/placeholder-user.jpg" />
           <AvatarFallback>AC</AvatarFallback>
         </Avatar>
-        <div className="font-medium">{post.author}</div>
-        <div className="ml-auto flex items-center gap-2 text-muted-foreground">
+        <div className="font-medium">@{post.author}</div>
+        {/* <div className="ml-auto flex items-center gap-2 text-muted-foreground">
           <CurrencyIcon className="w-5 h-5" />
           <span>100</span>
-        </div>
+        </div> */}
       </div>
       <div className="font-semibold">{post.title}</div>
       <div className="text-accent-foreground">{post.content}</div>
@@ -88,28 +96,28 @@ function Post({ post }) {
   );
 }
 
-function CurrencyIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="12" cy="12" r="8" />
-      <line x1="3" x2="6" y1="3" y2="6" />
-      <line x1="21" x2="18" y1="3" y2="6" />
-      <line x1="3" x2="6" y1="21" y2="18" />
-      <line x1="21" x2="18" y1="21" y2="18" />
-    </svg>
-  );
-}
+// function CurrencyIcon(props) {
+//   return (
+//     <svg
+//       {...props}
+//       xmlns="http://www.w3.org/2000/svg"
+//       width="24"
+//       height="24"
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//     >
+//       <circle cx="12" cy="12" r="8" />
+//       <line x1="3" x2="6" y1="3" y2="6" />
+//       <line x1="21" x2="18" y1="3" y2="6" />
+//       <line x1="3" x2="6" y1="21" y2="18" />
+//       <line x1="21" x2="18" y1="21" y2="18" />
+//     </svg>
+//   );
+// }
 function ThumbsDownIcon(props) {
   return (
     <svg
@@ -191,25 +199,7 @@ function ThumbsUpIconSolid(props) {
   );
 }
 
-function XIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M18 6 6 18" />
-      <path d="m6 6 12 12" />
-    </svg>
-  );
-}
+
 export default Post;
 
 //older version

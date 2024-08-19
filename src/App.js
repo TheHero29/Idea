@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import FeedPage from "./pages/FeedPage";
+import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./index";
@@ -19,6 +20,8 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/feed" element={<FeedPage />} />
+            <Route path="/about" element={<div>About</div>} />
+            <Route path="*" element={<div className="p-4">this page doesent exist, return to <Link to="/" className="hover:underline text-purple-700 font-bold">main page</Link></div>} />
           </Routes>
         </Router>
       </div>

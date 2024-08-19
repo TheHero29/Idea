@@ -46,7 +46,8 @@ const SignupPage = () => {
           <h1 className="text-3xl font-bold tracking-tight text-foreground">
             Sign up{" "}
           </h1>
-          <p className="mt-2 text-muted-foreground">Welcome to idea-dump</p>
+          <p className="mt-2 text-muted-foreground text">Welcome to idea-dump!</p>
+          <p className="mt-2 text-muted-foreground text font-bold">A place to share all your ideas with the world</p>
         </div>
         <div
           className="rounded-lg border bg-card text-card-foreground shadow-sm"
