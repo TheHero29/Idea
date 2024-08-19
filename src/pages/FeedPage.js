@@ -8,12 +8,12 @@ import { useDispatch } from "react-redux";
 
 const FeedPage = () => {
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(fetchUser());
   }, [dispatch]);
   const user = useSelector((state) => state.user.user);
-  console.log(user);
+  if(user!==null)
+  console.log(user.success,user.message);
 
   return (
     <>

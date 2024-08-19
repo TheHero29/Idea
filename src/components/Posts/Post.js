@@ -11,10 +11,11 @@ import { cancelUpvotePost, cancelDownvotePost } from '../../redux/actions/post';
 function Post({ post }) {
   const postId = post._id;
   const user = useSelector(state => state.user.user);
+  console.log(user);
   const userId = user?user._id:null;
   const dispatch = useDispatch();
   const upvote = async () =>{
-    if(!user)
+    if(user.message==="No token provided")
     { 
       alert("Please login to upvote");
       return;
@@ -37,7 +38,7 @@ function Post({ post }) {
     upvotePostBend(postId);
   }
   const downvote = async () =>{
-    if(!user)
+    if(user.message==="No token provided")
     {
       alert("Please login to downvote");
       return;
@@ -59,7 +60,7 @@ function Post({ post }) {
       }
     downvotePostBend(postId);
   }
-  console.log(post);
+  // console.log(post);
   return (
     <Card className="w-[80vw] md:max-w-[30vw] p-6 grid gap-6 m-4">
       <div className="flex items-center gap-4">
