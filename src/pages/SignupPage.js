@@ -34,8 +34,8 @@ const SignupPage = () => {
       }
 
       // Handle successful Signup, redirect, etc.
-      alert("Signup successful");
-      navigate("/feed");
+      alert("Signup successful, please login to continue");
+      navigate("/login");
     } catch (error) {
       alert(error);
     }
