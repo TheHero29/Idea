@@ -43,3 +43,14 @@ export const downvotePostBend = async (postId) => {
     return error.response;
   }
 }
+
+export const deletePost = async (postId) => {
+  try{
+    const response = await axiosInstance.delete(`api/posts/${postId}`);
+    return response;
+  }
+  catch(error){
+    console.log(error);
+    return error.response;
+  }
+}

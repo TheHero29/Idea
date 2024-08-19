@@ -11,7 +11,7 @@ const Header = () => {
     setShow(!show);
   };
   const user = useSelector((state) => state.user.user);
-  console.log(user);
+  // console.log(user);
   return (
     <>
       <nav className="flex justify-between items-center bg-primary fixed top-0 z-10 w-full">
@@ -47,19 +47,20 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link to={`user/${user._id}`} className="hover:underline">
+              {/* <Link to={`user/${user._id}`} className="hover:underline">
                 Profile
-              </Link>
+              </Link> */}
               <Link to="/about" className="hover:underline">
                 About
               </Link>
               <button
                 onClick={() => {
                   localStorage.removeItem("token");
+                  alert("Logged out successfully");
                   window.location.reload();
                   navigate("/login");
                 }}
-                className="hover:underline"
+                className="hover:underline scale-[3]"
               >
                 Logout
               </button>
@@ -99,13 +100,13 @@ const Header = () => {
               </>
             ) : (
               <>
-                <Link
+                {/* <Link
                   to={`user/${user._id}`}
                   className="hover:underline scale-[1.10]"
                   onClick={toggleMenu}
                 >
                   Profile
-                </Link>
+                </Link> */}
                 <Link
                   to="/about"
                   className="hover:underline scale-[1.10]"
