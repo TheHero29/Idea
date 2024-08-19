@@ -7,8 +7,7 @@ const Header = () => {
   const toggleMenu = () => {
     setShow(!show);
   };
-  const user = true;
-  // useSelector((state) => state.user.user);
+  const user = useSelector((state) => state.user.user);
   return (
     <>
       <nav className="flex justify-between items-center bg-primary fixed top-0 z-10 w-full">
