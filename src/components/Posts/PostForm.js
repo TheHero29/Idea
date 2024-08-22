@@ -2,12 +2,13 @@ import { GetCurrentUser } from "../../calls/users";
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { addPost } from "../../calls/posts";
+import { useSelector } from "react-redux";
 function PostForm() {
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
   const [tags, setTags] = useState([]);
   const navigate = useNavigate();
-
+  const user = useSelector(state => state.user.user);
   async function handleSubmit(e) {
     e.preventDefault();
     const user = await GetCurrentUser();
@@ -23,40 +24,52 @@ function PostForm() {
     };
     console.log(post);
     addPost(post);
-    
+
     setText("");
     setTitle("");
   }
 
   return (
     // <div className="justify-center items-center h-screen w-1/8 hidden lg:flex lg:align-top lg:flex-col">
-      <form
-        className={`
+    <form
+      className={`
         flex align-top flex-col w-[80vw] md:max-w-[30vw] lg:justify-start
          border bg-card text-card-foreground shadow-sm rounded-lg p-3 m-4`}
-        onSubmit={handleSubmit}
+      onSubmit={handleSubmit}
+    >
+      <input
+        className="m-3 p-3 rounded-lg border bg-card text-card-foreground shadow-sm"
+        type="text"
+        value={title}
+        onChange={(e) => {
+          if (!user) {
+            alert("You need to be logged in");
+            navigate("/login");
+          }
+          setTitle(e.target.value);
+        }}
+        placeholder="Title"
+      />
+      <textarea
+        className="m-3 p-3 rounded-lg border bg-card text-card-foreground shadow-sm"
+        type="text"
+        value={text}
+        onChange={(e) => {
+          if (!user) {
+            alert("You need to be logged in");
+            navigate("/login");
+          }
+          setText(e.target.value);
+        }}
+        placeholder="What's your idea?"
+      />
+      <button
+        className="text-wrap bg-black text-white rounded-xl p-2 max-w-20 m-3"
+        type="submit"
       >
-        <input
-          className="m-3 p-3 rounded-lg border bg-card text-card-foreground shadow-sm"
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Title"
-        />
-        <textarea
-          className="m-3 p-3 rounded-lg border bg-card text-card-foreground shadow-sm"
-          type="text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="What's your idea?"
-        />
-        <button
-          className="text-wrap bg-black text-white rounded-xl p-2 max-w-20 m-3"
-          type="submit"
-        >
-          Post
-        </button>
-      </form>
+        Post
+      </button>
+    </form>
     // </div>
   );
 }
